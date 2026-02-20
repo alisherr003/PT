@@ -97,20 +97,45 @@
     <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="thankYouMessage()"></iframe>
 
     <script>
-        // ===== Show Thank You Message After Submission =====
-        function thankYouMessage() {
-            const form = document.getElementById('booking-form');
-            const thankYou = document.getElementById('thank-you');
-            if(form.submitted){
-                form.style.display = 'none';
-                thankYou.style.display = 'block';
-            }
-        }
+    document.getElementById("booking-form").addEventListener("submit", function(e) {
+        e.preventDefault(); // stop normal form submit
 
-        // Track form submission
-        document.getElementById('booking-form').addEventListener('submit', function() {
-            this.submitted = true;
-        });
-    </script>
+        const name = document.querySelector('input[name="name"]').value;
+        const phone = document.querySelector('input[name="phone"]').value;
+        const pickup = document.querySelector('input[name="pickup"]').value;
+        const dropoff = document.querySelector('input[name="dropoff"]').value;
+        const date = document.querySelector('input[name="date"]').value;
+        const time = document.querySelector('input[name="time"]').value;
+
+        const message = `
+    🚖 New Booking!
+    Name: ${name}
+    Phone: ${phone}
+    Pickup: ${pickup}
+    Drop-off: ${dropoff}
+    Date: ${date}
+    Time: ${time}
+    `;
+
+        const token = "YOUR_BOT_TOKEN";
+        const chat_id = "YOUR_CHAT_ID";
+
+        fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                chat_id: chat_id,
+                text: message
+            })
+        })
+        .then(response => {
+            document.getElementById("booking-form").style.display = "none";
+            document.getElementById("thank-you").style.display = "block";
+        })
+        .catch(error => alert("Error sending booking!"));
+    });
+</script>
 </body>
 </html>
