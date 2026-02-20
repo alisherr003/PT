@@ -1,116 +1,158 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex">
-    <title>Poytaxt Taxi</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Poytaxt Taxi</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        /* ===== Global Styles ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
-        body { background-color: #ffffff; color: #ffffff; }
-        a { text-decoration: none; color: inherit; }
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
 
-        /* ===== Header ===== */
-        header {
-            background-color: #2c3e91;
-            padding: 20px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        header img { height: 50px; width: auto; object-fit: contain; border-radius: 8px; }
-        header h1 { font-size: 1.8rem; font-weight: 700; }
+body { background-color: #ffffff; }
 
-        /* ===== Main Container ===== */
-        main { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
+header {
+    background-color: #2c3e91;
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    color: white;
+}
 
-        /* ===== About Section ===== */
-        #about { text-align: center; margin-bottom: 50px; color: #2c3e91; }
-        #about h2 { font-size: 2rem; margin-bottom: 10px; }
-        #about p { font-size: 1.2rem; }
+header img { height: 50px; border-radius: 8px; }
+header h1 { font-size: 1.8rem; }
 
-        /* ===== Booking Form ===== */
-        #booking { background-color: #2c3e91; padding: 30px; border-radius: 12px; }
-        #booking h2 { margin-bottom: 20px; text-align: center; font-size: 1.8rem; }
-        #booking-form { display: flex; flex-direction: column; gap: 15px; }
-        #booking-form input, #booking-form button { padding: 12px; border-radius: 6px; border: none; font-size: 1rem; }
-        #booking-form input { width: 100%; }
-        #booking-form button {
-            background-color: #ffffff; color: #2c3e91; font-weight: bold; cursor: pointer; transition: 0.3s;
-        }
-        #booking-form button:hover { background-color: #e0e0e0; }
+main { padding: 40px 20px; max-width: 800px; margin: 0 auto; }
 
-        /* ===== Thank You Message ===== */
-        #thank-you { display: none; text-align: center; font-size: 1.5rem; color: #ffffff; margin-top: 20px; }
+#about { text-align: center; margin-bottom: 50px; color: #2c3e91; }
+#about h2 { font-size: 2rem; margin-bottom: 10px; }
 
-        /* ===== Responsive ===== */
-        @media (max-width: 600px) {
-            header { justify-content: center; }
-            main { padding: 20px 15px; }
-        }
-    </style>
+#booking {
+    background-color: #2c3e91;
+    padding: 30px;
+    border-radius: 12px;
+    color: white;
+}
+
+#booking h2 { margin-bottom: 20px; text-align: center; }
+
+#booking-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#booking-form input,
+#booking-form button {
+    padding: 12px;
+    border-radius: 6px;
+    border: none;
+    font-size: 1rem;
+}
+
+#booking-form button {
+    background-color: white;
+    color: #2c3e91;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#booking-form button:hover {
+    background-color: #e0e0e0;
+}
+
+#thank-you {
+    display: none;
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+    header { justify-content: center; }
+    main { padding: 20px 15px; }
+}
+</style>
 </head>
+
 <body>
 
-    <!-- ===== Header ===== -->
-    <header>
-        <img src="Logo.jpg" alt="Poytaxt Taxi Logo">
-        <h1>Poytaxt Taxi</h1>
-    </header>
+<header>
+    <img src="Logo.jpg" alt="Poytaxt Taxi Logo">
+    <h1>Poytaxt Taxi</h1>
+</header>
 
-    <!-- ===== Main ===== -->
-    <main>
+<main>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2>PoytaxtTaxi</h2>
-            <p>har safarda qulaylik</p>
-        </section>
+<section id="about">
+    <h2>PoytaxtTaxi</h2>
+    <p>har safarda qulaylik</p>
+</section>
 
-        <!-- Booking Form Section -->
-        <section id="booking">
-            <h2>Booking Form</h2>
-            
-            <form id="booking-form" action="https://script.google.com/macros/s/AKfycbyJcDtOL8TLezlSDt1Xf_8P4s3HxgE9XDKPhR94gKrDc-zujKUeM9LZ8jFpI1SwbYnDjQ/exec" method="POST">
-                <input type="text" name="name" placeholder="Name" required>
-                <input type="tel" name="phone" placeholder="Phone Number" required>
-                <input type="text" name="pickup" placeholder="Pickup Location" required>
-                <input type="text" name="dropoff" placeholder="Drop-off Location" required>
-                <input type="date" name="date" required>
-                <input type="time" name="time" required>
-                <button type="submit">Book Now</button>
-            </form>
+<section id="booking">
+    <h2>Booking Form</h2>
 
-            <div id="thank-you">Thank you! Your booking has been received.</div>
-        </section>
+    <form id="booking-form">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="tel" name="phone" placeholder="Phone Number" required>
+        <input type="text" name="pickup" placeholder="Pickup Location" required>
+        <input type="text" name="dropoff" placeholder="Drop-off Location" required>
+        <input type="date" name="date" required>
+        <input type="time" name="time" required>
+        <button type="submit">Book Now</button>
+    </form>
 
-    </main>
+    <div id="thank-you">Thank you! Your booking has been received.</div>
+</section>
 
-    <!-- ===== Hidden Iframe for submission ===== -->
-    <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="thankYouMessage()"></iframe>
+</main>
 
-    <script>
-        // ===== Show Thank You Message After Submission =====
-        function thankYouMessage() {
-            const form = document.getElementById('booking-form');
-            const thankYou = document.getElementById('thank-you');
-            if(form.submitted){
-                form.style.display = 'none';
-                thankYou.style.display = 'block';
-            }
+<script>
+document.getElementById("booking-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const message =
+`🚖 New Booking!
+
+👤 Name: ${form.name.value}
+📞 Phone: ${form.phone.value}
+📍 Pickup: ${form.pickup.value}
+🏁 Drop-off: ${form.dropoff.value}
+📅 Date: ${form.date.value}
+⏰ Time: ${form.time.value}`;
+
+    const token = "8258043623:AAHouwaQTX3kbmQVaPTG6CocSxmYga5HYSY";
+    
+    const chat_id = "-1003777976859";
+
+    fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            chat_id: chat_id,
+            text: message
+        })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.ok) {
+            form.reset();
+            form.style.display = "none";
+            document.getElementById("thank-you").style.display = "block";
+        } else {
+            alert("Telegram Error: " + data.description);
         }
+    })
+    .catch(() => alert("Network error. Please try again."));
+});
+</script>
 
-        // Track form submission
-        document.getElementById('booking-form').addEventListener('submit', function() {
-            this.submitted = true;
-        });
-    </script>
 </body>
 </html>
